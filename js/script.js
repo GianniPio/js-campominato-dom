@@ -28,7 +28,10 @@ const result = document.getElementById("risultato");
 const easy = 100;
 const medium = 81;
 const hard = 49;
-var clicked = 0;
+const bombe = [];
+let clicked = 0;
+let difficolta = 0;
+
 
 
 // bottone difficoltà facile
@@ -36,13 +39,14 @@ btnEasy.addEventListener('click',
 
     function() {
 
-        // container.style.display = "none";
+        difficolta = 100;
 
-        // container.style.display = "flex";
+        const numBomb = generatoreBombe(bombe, difficolta);
 
-        for (let i = 0; i < easy; i++) {
+        for (let i = 1; i <= easy; i++) {
 
             let newGrid = generetedElement("square1");
+            newGrid.id = i;
     
             newGrid.addEventListener("click",
             
@@ -50,21 +54,27 @@ btnEasy.addEventListener('click',
 
                     clicked++;
     
-                    newGrid.innerHTML = `${i+1}`;
+                    newGrid.innerHTML = `${i}`;
                     
                     this.classList.add("square_click");
+                    const id = parseInt(this.id);
+
+                    if(numBomb.includes(id)) {
+                        (newGrid).classList.add("bomba");
+                        alert("Hai perso");
+                    }
                     
                     result.innerText = `Hai fatto ${clicked} punti`;
     
                 }
             
             )
-    
-            
             container.append(newGrid);
-        }
-    }
 
+            
+        }
+        console.log(numBomb);
+    }
 
 )
 
@@ -74,13 +84,14 @@ btnMedium.addEventListener('click',
 
     function() {
 
-        // container.style.display = "none";
+        difficolta = 81;
 
-        // container.style.display = "flex";
+        const numBomb = generatoreBombe(bombe, difficolta);
 
-        for (let i = 0; i < medium; i++) {
+        for (let i = 1; i <= medium; i++) {
 
             let newGrid = generetedElement("square2");
+            newGrid.id = i;
     
             newGrid.addEventListener("click",
             
@@ -88,9 +99,15 @@ btnMedium.addEventListener('click',
     
                     clicked++;
     
-                    newGrid.innerHTML = `${i+1}`;
+                    newGrid.innerHTML = `${i}`;
                     
                     this.classList.add("square_click");
+                    const id = parseInt(this.id);
+
+                    if(numBomb.includes(id)) {
+                        newGrid.classList.add("bomba");
+                        alert("Hai perso");
+                    }
                     
                     result.innerText = `Hai fatto ${clicked} punti`
     
@@ -101,7 +118,7 @@ btnMedium.addEventListener('click',
             container.append(newGrid);
     
         }
-
+        console.log(numBomb);
 
     }
 
@@ -113,13 +130,14 @@ btnHard.addEventListener('click',
 
     function() {
 
-        // container.style.display = "none";
+        difficolta = 49;
 
-        // container.style.display = "flex";
+        const numBomb = generatoreBombe(bombe, difficolta);
 
-        for (let i = 0; i < hard; i++) {
+        for (let i = 1; i <= hard; i++) {
             
             let newGrid = generetedElement("square3");
+            newGrid.id = i;
     
             newGrid.addEventListener("click",
             
@@ -127,11 +145,17 @@ btnHard.addEventListener('click',
     
                     clicked++;
     
-                    newGrid.innerHTML = `${i+1}`;
+                    newGrid.innerHTML = `${i}`;
                     
                     this.classList.add("square_click");
+                    const id = parseInt(this.id);
+
+                    if(numBomb.includes(id)) {
+                        newGrid.classList.add("bomba");
+                        alert("Hai perso");
+                    }
                     
-                    result.innerText = `Hai fatto ${clicked} punti`
+                    result.innerText = `Hai fatto ${clicked} punti`;
     
                 }
             
@@ -139,6 +163,7 @@ btnHard.addEventListener('click',
             
             container.append(newGrid);
         }
+        console.log(numBomb);
 
     }
     
@@ -157,6 +182,17 @@ function generetedElement(gridClass) {
 
 }
 
+function generatoreBombe(array, max) {
+    while(array.length < 16 ) {
+        bomba = Math.floor(Math.random() * max) + 1;
 
+        if (array.includes(bomba) == false) {
+            array.push(bomba);
+        }
+    
+    }
+
+    return array
+}
 
 
