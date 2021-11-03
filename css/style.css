@@ -19,6 +19,16 @@ header {
     justify-content: flex-end;
     background-color: white;
     padding: 5px;
+    display: flex;
+    justify-content: center;
+}
+
+button {
+    margin: 0 10px;
+    background-color: cornflowerblue;
+    border-radius: 20px;
+    padding: 10px;
+    cursor: pointer;
 }
 
 /* tag main */

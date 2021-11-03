@@ -20,99 +20,104 @@
 // 4. Generare numeri -> for
 
 const container = document.getElementById("container-grid");
+const btnEasy = document.getElementById("easy");
+const btnMedium = document.getElementById("medium");
+const btnHard = document.getElementById("hard");
 
-var numDiff = 0;
 const easy = 100;
 const medium = 81;
 const hard = 49;
 
 
-while ((numDiff < 1 ) || (numDiff > 3)) {
-    numDiff = parseInt(prompt("Scegli un numero: 1 - Facile / 2 - Intermedio / 3 - Difficile"));
-}
 
+btnEasy.addEventListener('click',
 
+    function() {
 
-if (numDiff === 1) {
+        for (let i = 0; i < easy; i++) {
+
+            let newGrid = generetedElement("square1");
     
-    alert("Hai scelto la difficoltà 'facile'");
-
-    for (let i = 0; i < easy; i++) {
-
-        let newGrid = generetedElement("square1");
-
-        newGrid.addEventListener("click",
-        
-            function() {
-
-                newGrid.innerHTML = `${i+1}`;
-                
-                this.classList.add("square_click");
-
-            }
-        
-        )
-
-        
-        
-        container.append(newGrid);
-    }
-
-
-} else if (numDiff === 2) {
-
-    alert("Hai scelto la difficoltà 'intermedia'");
+            newGrid.addEventListener("click",
+            
+                function() {
     
-    for (let i = 0; i < medium; i++) {
-
-        let newGrid = generetedElement("square2");
-
-
-        newGrid.addEventListener("click",
-        
-            function() {
-
-                newGrid.innerHTML = `${i+1}`;
-                
-                this.classList.add("square_click");
-
-            }
-        
-        )
-        
-        container.append(newGrid);
-
-    }
-} else if (numDiff === 3) {
-
-    alert("Hai scelto la difficoltà 'difficile'");
-
-    for (let i = 0; i < hard; i++) {
-
-        let newGrid = generetedElement("square3");
-
-        newGrid.addEventListener("click",
-        
-            function() {
-
-                newGrid.innerHTML = `${i+1}`;
-
-                this.classList.add("square_click");
-
-            }
-        
-        )
-        
-        container.append(newGrid);
+                    newGrid.innerHTML = `${i+1}`;
+                    
+                    this.classList.add("square_click");
+    
+                }
+            
+            )
+    
+            
+            container.append(newGrid);
+        }
     }
 
-}
+
+)
+
+    
+btnMedium.addEventListener('click',
+
+    function() {
+
+        for (let i = 0; i < medium; i++) {
+
+            let newGrid = generetedElement("square2");
+    
+            newGrid.addEventListener("click",
+            
+                function() {
+    
+                    newGrid.innerHTML = `${i+1}`;
+                    
+                    this.classList.add("square_click");
+    
+                }
+            
+            )
+            
+            container.append(newGrid);
+    
+        }
 
 
+    }
 
 
+)
 
 
+    
+    
+btnHard.addEventListener('click',
+
+    function() {
+
+        for (let i = 0; i < hard; i++) {
+
+            let newGrid = generetedElement("square3");
+    
+            newGrid.addEventListener("click",
+            
+                function() {
+    
+                    newGrid.innerHTML = `${i+1}`;
+    
+                    this.classList.add("square_click");
+    
+                }
+            
+            )
+            
+            container.append(newGrid);
+        }
+
+    }
+
+)
 
 
 // funzioni
