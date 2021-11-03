@@ -19,6 +19,10 @@
 
 // 4. Generare numeri -> for
 
+// 5. Generare 16 numeri che si riferiscono alle bombe
+
+// 6. Controllare se l'elemento cliccato, fa parte delle bombe
+
 const container = document.getElementById("container-grid");
 const btnEasy = document.getElementById("easy");
 const btnMedium = document.getElementById("medium");
