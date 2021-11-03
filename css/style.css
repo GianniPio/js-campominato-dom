@@ -1,0 +1,59 @@
+/* tag generali */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* tag body */
+
+body {
+    background-color: blue;
+}
+
+#container-grid {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    width: 700px;
+    height: 600px;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+#container-grid > div {
+    cursor: pointer;
+    color: blue;
+}
+
+.square1 {
+    background-color: blue;
+    border: 3px solid white;
+    width: calc(100% / 10);
+    height: calc(100% / 10);
+    line-height: 55px;
+}
+
+.square2 {
+    background-color: blue;
+    border: 3px solid white;
+    width: calc(100% / 9);
+    height: calc(100% / 9);
+    line-height: 64px;
+}
+
+.square3 {
+    background-color: blue;
+    border: 3px solid white;
+    width: calc(100% / 7);
+    height: calc(100% / 7);
+    line-height: 80px;
+}
+
+.square_click {
+    background-color: white;
+    border: 3px solid black;
+}
