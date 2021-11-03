@@ -5,11 +5,11 @@
 // con difficoltà 3 => tra 1 e 49
 // Quando l’utente clicca su ogni cella, la cella cliccata si colora di azzurro
 
-// 1. Far scegliere all'utente la difficoltà -> while
-    // 1.1 Deve scegliere tra 3 numeri, in base al numero scelto, decide la difficoltà
+// 1. Far scegliere all'utente la difficoltà -> btn
+    // 1.1 Deve scegliere tra 3 bottoni, in base al bottone scelto, decide la difficoltà
 
 // 2. Creare le funzioni per la creazione della griglia
-    // 2.1 In base al numero scelto, si attiva una funzione diversa -> if
+    // 2.1 In base al bottone scelto scelto, si attiva una funzione diversa -> if
 
 
 // 3. In base alla difficoltà scelta, viene creare la griglia
@@ -23,16 +23,22 @@ const container = document.getElementById("container-grid");
 const btnEasy = document.getElementById("easy");
 const btnMedium = document.getElementById("medium");
 const btnHard = document.getElementById("hard");
+const result = document.getElementById("risultato");
 
 const easy = 100;
 const medium = 81;
 const hard = 49;
+var clicked = 0;
 
 
-
+// bottone difficoltà facile
 btnEasy.addEventListener('click',
 
     function() {
+
+        // container.style.display = "none";
+
+        // container.style.display = "flex";
 
         for (let i = 0; i < easy; i++) {
 
@@ -41,10 +47,14 @@ btnEasy.addEventListener('click',
             newGrid.addEventListener("click",
             
                 function() {
+
+                    clicked++;
     
                     newGrid.innerHTML = `${i+1}`;
                     
                     this.classList.add("square_click");
+                    
+                    result.innerText = `Hai fatto ${clicked} punti`;
     
                 }
             
@@ -58,10 +68,15 @@ btnEasy.addEventListener('click',
 
 )
 
-    
+
+// bottone difficoltà media
 btnMedium.addEventListener('click',
 
     function() {
+
+        // container.style.display = "none";
+
+        // container.style.display = "flex";
 
         for (let i = 0; i < medium; i++) {
 
@@ -71,9 +86,13 @@ btnMedium.addEventListener('click',
             
                 function() {
     
+                    clicked++;
+    
                     newGrid.innerHTML = `${i+1}`;
                     
                     this.classList.add("square_click");
+                    
+                    result.innerText = `Hai fatto ${clicked} punti`
     
                 }
             
@@ -88,25 +107,31 @@ btnMedium.addEventListener('click',
 
 
 )
-
-
     
-    
+// bottone difficoltà difficile
 btnHard.addEventListener('click',
 
     function() {
 
-        for (let i = 0; i < hard; i++) {
+        // container.style.display = "none";
 
+        // container.style.display = "flex";
+
+        for (let i = 0; i < hard; i++) {
+            
             let newGrid = generetedElement("square3");
     
             newGrid.addEventListener("click",
             
                 function() {
     
-                    newGrid.innerHTML = `${i+1}`;
+                    clicked++;
     
+                    newGrid.innerHTML = `${i+1}`;
+                    
                     this.classList.add("square_click");
+                    
+                    result.innerText = `Hai fatto ${clicked} punti`
     
                 }
             
@@ -116,7 +141,7 @@ btnHard.addEventListener('click',
         }
 
     }
-
+    
 )
 
 
