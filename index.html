@@ -9,12 +9,33 @@
 </head>
 <body>
 
-    <!-- contenitore griglia -->
-    <div id="container-grid">
-        
-    </div>
+    <!-- header -->
+    <header>
+        <form name="seleziona">
 
-    
+            <select name="difficolta">
+                <option value="1">Facile</option>
+                <option value="2">Medio</option>
+                <option value="3">Difficile</option>
+            </select>
+
+            <input type="submit" value="Seleziona" name="seleziona">
+
+        </form>
+    </header>
+
+    <!-- main -->
+    <main>
+        <!-- contenitore griglia -->
+        <div id="container-grid">
+        </div>
+    </main>
+
+    <!-- footer -->
+    <footer>
+        <div id="risultato"></div>
+    </footer>
+
     <script src="js/script.js"></script>
 </body>
 </html>

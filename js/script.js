@@ -58,6 +58,7 @@ if (numDiff === 1) {
         container.append(newGrid);
     }
 
+
 } else if (numDiff === 2) {
 
     alert("Hai scelto la difficoltà 'intermedia'");
